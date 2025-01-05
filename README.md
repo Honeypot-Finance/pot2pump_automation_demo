@@ -49,3 +49,8 @@ The script executes the following operations in sequence:
 
 [note]
 The addresses configured in constants are currently testnet addresses, which will need to be updated to mainnet deployment addresses later
+
+[usage]
+```
+ts-node src/index.ts
+```

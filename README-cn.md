@@ -49,3 +49,8 @@
 
 [note]
 目前constants里配置的地址都是测试网地址，后续需要更新成主网部署的地址
+
+[usage]
+```
+ts-node src/index.ts
+```
