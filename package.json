@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^9.0.0",
+    "husky": "^8.0.3",
+    "size-limit": "^9.0.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@types/dotenv": "^8.2.3",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.4",
+    "pot2pump-sdk": "^1.0.0"
+  }
+}
