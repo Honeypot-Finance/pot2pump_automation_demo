@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
-import { pot2pumpFacadeABI } from "pot2pump-sdk";
-import { erc20ABI } from "pot2pump-sdk";
+import { pot2pumpFacadeABI, erc20ABI } from "../abis";
 
 
 import dotenv from 'dotenv';
@@ -12,7 +11,7 @@ export async function depositLaunch(): Promise<void> {
     const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
     const wallet = new ethers.Wallet(process.env.PRIVATE_KEY || "", provider);
 
-    // TODO:
+    //
     
    
 }

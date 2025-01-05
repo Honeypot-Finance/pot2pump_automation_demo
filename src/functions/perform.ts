@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { pot2pumpPairABI } from "pot2pump-sdk";
+import { pot2pumpPairABI } from "../abis";
 import dotenv from 'dotenv';
 dotenv.config();
 

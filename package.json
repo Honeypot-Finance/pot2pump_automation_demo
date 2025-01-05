@@ -18,7 +18,6 @@
   "dependencies": {
     "@types/dotenv": "^8.2.3",
     "dotenv": "^16.4.7",
-    "ethers": "^6.13.4",
-    "pot2pump-sdk": "^1.0.1"
+    "ethers": "^6.13.4"
   }
 }
