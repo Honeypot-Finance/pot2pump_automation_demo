@@ -2,26 +2,28 @@ import { ethers } from "ethers";
 import { pot2pumpFactoryABI } from "pot2pump-sdk";
 
 import dotenv from 'dotenv';
+import { POT2PUMP_FACTORY_ADDRESS, NONFUNGIBLE_POSITION_MANAGER, RAISED_TOKEN } from "./constants/constants";
 dotenv.config();
 
-export async function createLaunch(): Promise<{ launchedToken: string, pair: string }> {
+export async function createLaunch(_name: string, _symbol: string): Promise<{ launchedToken: string, pair: string }> {
+    console.log("Creating launch... name: ", _name, "symbol: ", _symbol);
     
     // init provider and wallet
     const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
     const wallet = new ethers.Wallet(process.env.PRIVATE_KEY || "", provider);
 
     // pot2pump factory address
-    const pot2PumpFactoryAddress = "0x1c0c97685e54a2132ab13cfaf9df2ed4f9bff6db";
+    const pot2PumpFactoryAddress = POT2PUMP_FACTORY_ADDRESS;
     // pool handler address
-    const nonfungiblePositionManager = "0x29a738deAFdd2c6806e2f66891D812A311799828";
+    const nonfungiblePositionManager = NONFUNGIBLE_POSITION_MANAGER;
 
     // TODO: how to get raised token address from pot2pump-sdk
     // raised token address
-    const raisedToken = "0xfc5e3743E9FAC8BB60408797607352E24Db7d65E";
+    const raisedToken = RAISED_TOKEN;
 
     // Define create Launch Params
-    const launchName = "TEST";
-    const launchSymbol = "TEST";
+    const launchName = _name;
+    const launchSymbol = _symbol;
 
     // Create Launch
     const pot2PumpFactory = new ethers.Contract(
@@ -38,6 +40,7 @@ export async function createLaunch(): Promise<{ launchedToken: string, pair: str
     );
 
     const launchTxReceipt = await launchTx.wait();
+    console.log("Launch Tx:", launchTxReceipt.hash);
 
 
     let launchedToken = "";
